@@ -1,0 +1,124 @@
+
+
+----
+ViewModel, LiveData, RecyclerView, Room
+----
+Binding Class (in Gradle(module)):
+
+android{
+...
+    buildFeatures {
+        viewBinding true
+    }
+}
+-
+MainActivity:
+
+class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+	}
+
+--
+
+Coroutines:
+dependencies {
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8'
+}
+--
+
+RecyciclerView:
+dependencies {
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
+}
+
+--
+Или устаревшие:
+gradle app:
+plugins{
+...
+id 'kotlin-android-extensions'
+}
+в класс:
+import kotlinx.android.synthetic.main.activity_main.*
+
+----
+Ctrl+Q - быстрый поиск документации
+Ctrl+Tab - вернуться назад после Ctrl+click
+Alt+F7 - найти использования
+Ctrl+Shift+I - показать место объявления
+Ctrl+P - показать тип вводимого значения в (функцию)
+Ctrl+Shift+P - узнать тип переменной
+Ctrl+Shift+Space - умное дополнение (отображение вариантов ввода кода)
+Ctrl+Alt+I - авто-отступ (tabs)
+Ctrl+Alt+L - реформат кода
+Ctrl+Shift+L - авто-формат кода
+Shift+Enter - новая строка из любого места
+Ctrl+Y - удалить строку
+Ctrl+D - дублировать строку
+Alt+Shift + ArrowUP/Down - переместить строку
+Ctrl+F/R - F/найти и R/заменить
+Ctrl+Shift+L - автоформатирование
+Ctrl+Alt+Shift+L - реорганизация файла (автоформатирование плюс)
+Ctrl+/ - коммент/раскомент строки
+Ctrl+Shift+/ - коммент/раскомент блока
+//region ABC ... //endregion - свернуть любую часть кода
+<!--комментарий в xml, нельзя больше одной строки-->, также работает Ctrl+/
+Ctrl+- — в XML скрыть/показать реальный текст вместо @+id/tvTextView
+Tab вместо Enter - чтобы не Добавить а Заменить код из подсказки
+Shift+Enter - переход на новую строку из любого места текущей строки
+Ctrl+Shift+/ — закомментировать кусок кода
+Ctrl+B - перейти к источнику в документации
+Alt+Insert — Generate code (getters, setters, constructors, hashCode/equals, toString,
+			 new	file, new class)
+Ctrl+Alt+T - обернуть в (if...else / try...catch / etc.)
+Ctrl+o - импортировать возможные методы из класса
+Ctrl+J - живые шаблоны
+Ctrl+Shift+V - история буфера обмена
+
+----
+extends это ключевое слово, предназначенное для расширения реализации какого-то существующего класса. Создается новый класс на основе существующего, и этот новый класс расширяет (extends) возможности старого
+
+implements это ключевое слово, предназначенное для реализации интерфейса (interface)
+
+@Override ключевое слово, которое позволяет в дочернем классе заново создать реализацию метода родительского класса
+
+Интерфейс определяет, что должен уметь делать объект. С точки зрения Котлина, это набор свойств (с их типами) и функций (с их параметрами и результатом), которые должны у этого объекта иметься
+
+dp - objects
+sp - text
+----
+findViewById() - обратиться(найти) к элементу
+
+----
+На другую Activity:
+
+        btnAbout.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
+----
+GitHub Desktop
+Push – отправка изменений из локального репозитория в удаленный репозиторий (в нашем случае он будет расположен на GitHub).
+
+Fetch – получение изменений из удаленного репозитория для сравнения и возможного последующего слияния.
+
+Merge – слияние. Применение изменений совершенных в другом репозитории текущим репозиторием. Что-то вроде объединения двух репозиториев.
+
+Pull – комбинация fetching и merging. Сперва из удаленного репозитория получается список изменений, а затем изменения применяются к текущему репозиторию.
+
+То есть, если кто-то кроме вас поработал и совершил изменения в репозитории GitHub, то вы можете последовательно совершить 2 действия: Fetch, а затем Merge. Или же вы можете сразу выполнить Pull. После этого в вашем локальном репозитории отобразятся совершенные изменения
+
+----
+
+Genymotion:
+Установить API -№№ в Android Studio
+Создать любой телефон с API -№№, 1 процессор, 2048Мб, 240 HDPI
+enjoy
