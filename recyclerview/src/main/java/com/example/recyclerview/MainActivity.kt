@@ -1,5 +1,5 @@
 package com.example.recyclerview
-
+// https://www.youtube.com/watch?v=4pevVON0v-U&list=PLmjT2NFTgg1fdHN-9Wn4XYr-IOuadxMm5&index=30
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
